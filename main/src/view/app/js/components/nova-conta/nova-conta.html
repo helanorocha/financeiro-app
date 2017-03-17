@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-sm-12">
+        <section class="row">
+            <div class="col-sm-12 col-md-5">
+                <label>
+                    Login: <input type="text" class="form-control" required ng-model="$ctrl.usuario.login" />
+                </label>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-sm-12 col-md-5">
+                <label>
+                    Senha: <input type="password" class="form-control" required ng-model="$ctrl.usuario.password" />
+                </label>
+            </div>
+        </section>
+        <section class="row" ng-if="!$ctrl.loginService.usuarioLogado">
+            <div class="col-sm-12 col-md-5">
+                <label>
+                    Confirmar Senha:
+                    <input type="password" class="form-control" required ng-model="$ctrl.usuario.confirmPassword" />
+                </label>
+                <small id="emailHelp" 
+                        ng-if="$ctrl.usuario.password != $ctrl.usuario.confirmPassword" class="form-text text-muted">
+                    <i style="color: red;">Senhas estão diferentes</i>
+                </small>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-sm-12 col-md-3">
+                <label>
+                    Nome: <input type="text" class="form-control" required ng-model="$ctrl.usuario.nome" />
+                </label>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <label>
+                    Data de nascimento: <input type="date" class="form-control" ng-model="$ctrl.usuario.dataNascimento" />
+                </label>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-sm-12 col-md-3">
+                <label>
+                    Email: <input type="email" class="form-control" ng-model="$ctrl.usuario.email"/>
+                </label>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <label>
+                    Telefone: <input type="text" class="form-control" ng-model="$ctrl.usuario.telefone"/>
+                </label>
+            </div>
+        </section>
+        <section class="row" ng-if="$ctrl.loginService.usuarioLogado">
+            <div class="col-sm-12 col-md-3">
+                <label>
+                    Receita Mensal: <input type="number" class="form-control" ng-model="$ctrl.usuario.receitaMensal"/>
+                </label>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <label>
+                    Dia de Entrada Receita Mensal: <input type="number" class="form-control" ng-model="$ctrl.usuario.diaReceita"/>
+                </label>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-sm-12">
+                <button type="button" class="btn btn-primary" ng-click="$ctrl.enviarForm()">Enviar</button>
+                <button type="button" class="btn btn-secondary" ng-if="!$ctrl.loginService.usuarioLogado" ng-click="$ctrl.location.url('/login')">Cancelar</button>
+                <button type="button" class="btn btn-secondary" ng-if="$ctrl.loginService.usuarioLogado" ng-click="$ctrl.location.url('/welcome')">Cancelar</button>
+            </div>
+        </section>
+  </div>
+</div>

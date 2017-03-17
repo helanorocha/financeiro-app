@@ -1,0 +1,22 @@
+<div class="form-group">
+    <label for="descricaoEntrada">Descrição</label>
+    <input type="text" class="form-control" id="descricaoEntrada" ng-model="$ctrl.entrada.descricao">
+  </div>
+  <div class="form-group">
+    <label for="valorEntrada">Valor</label>
+    <input type="number" class="form-control" id="valorEntrada" ng-model="$ctrl.entrada.valor">
+  </div>
+  <div class="form-group">
+    <label for="data">Data</label>
+    <input type="date" class="form-control" id="data" ng-model="$ctrl.entrada.data">
+  </div>
+  <div class="form-group">
+    <label for="tipoOperacao">Operação</label>
+    <select class="form-control" id="tipoOperacao" ng-model="$ctrl.entrada.tipoOperacao">
+      <option value="">Selecione</option>
+      <option value="credito">Crédito</option>
+      <option value="debito">Débito</option>
+    </select>
+  </div>
+  <button type="button" class="btn btn-primary">Salvar</button>
+  <button type="button" class="btn btn-secondary" ng-click="$ctrl.cancelar()">Cancelar</button>
