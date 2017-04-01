@@ -4,6 +4,9 @@ class LoginController {
 		this.loginService = loginService;
         this.location = $location;
         this.usuario = {};
+        if(this.loginService.usuarioLogado) {
+            this.location.url('/welcome');
+        }
 	}
 
     login() {
@@ -11,6 +14,7 @@ class LoginController {
             (response) => {
                 console.log('entrou');
                 if(response.data) {
+                    localStorage.setItem('usuarioLogado', JSON.stringify(response.data));
                     this.loginService.usuarioLogado = response.data;
                     if(!this.loginService.usuarioLogado.receitaMensal) {
                         this.location.url('/minhaConta');

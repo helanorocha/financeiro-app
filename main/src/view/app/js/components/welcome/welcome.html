@@ -2,16 +2,19 @@
 <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="$ctrl.adicionarMovimentacao()">Adicionar</button>
 <div style="margin-bottom: 20px;"></div>
 <ul class="list-group">
-  <li class="list-group-item justify-content-between">
-    13/03 - Caloeiro me pagou
-    <span class="badge badge-default badge-pill" style="background-color: green">+ R$ 80,00</span>
-  </li>
-  <li class="list-group-item justify-content-between">
-    14/03 - Paguei a COELCE 
-    <span class="badge badge-default badge-pill" style="background-color: red">- R$ 200,00</span>
-  </li>
-  <li class="list-group-item justify-content-between">
-    15/03 - Paguei a GVT 
-    <span class="badge badge-default badge-pill" style="background-color: red">- R$ 150,00</span>
+  <li class="list-group-item justify-content-between" ng-repeat="movimentacao in $ctrl.listaMovimentacao">
+    <div class="d-flex justify-content-end" style="width: 100%;">
+      <div class="mr-auto p-2">{{ movimentacao.data |  date : 'dd/MM' }} - {{ movimentacao.descricao }}</div>
+      <div class="p-2">
+        <span class="badge badge-default badge-pill" ng-class="{green: movimentacao.tipo == 'credito', red: movimentacao.tipo == 'debito'}">
+          {{ movimentacao.tipo == 'credito'? '+':'-' }} R$ {{ movimentacao.valor }}
+        </span>
+      </div>
+      <div class="p-2">
+        <a href="javascript:void(0)" ng-click="$ctrl.deletar(movimentacao.id)">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true">Deletar</span>
+        </a>
+      </div>
+    </div>
   </li>
 </ul>

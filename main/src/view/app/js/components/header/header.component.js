@@ -2,6 +2,12 @@ class HeaderController {
   constructor($location, loginService) {
     this.location = $location;
     this.loginService = loginService;
+    let usuarioLogado = localStorage.getItem('usuarioLogado');
+    if(usuarioLogado) {
+			this.loginService.usuarioLogado = JSON.parse(usuarioLogado);
+		} else {
+      $location.url('/login');
+    }
   }
 
   minhaConta() {
@@ -16,6 +22,7 @@ class HeaderController {
 
   logout() {
     this.loginService.usuarioLogado = null;
+    localStorage.clear();
     this.location.url('/login');
   }
 

@@ -6,5 +6,6 @@ export const HTTP_STATUS = {
 
 export const API_URLS = {
 	LOGIN: 'http://localhost:8080/login/',
-	NOVA_CONTA: 'http://localhost:8080/novaConta/'
+	NOVA_CONTA: 'http://localhost:8080/novaConta/',
+	MOVIMENTACAO: 'http://localhost:8080/movimentacao/'
 }

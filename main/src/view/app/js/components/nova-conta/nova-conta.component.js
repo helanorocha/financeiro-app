@@ -23,6 +23,7 @@ class NovaContaController {
                 } else {
                     if(response.data){
                         alert('Informações atualizadas com  sucesso');
+                        localStorage.setItem('usuarioLogado', JSON.stringify(this.usuario));
                         this.location.url('/welcome');
                     } else {
                         alert('Erro ao atualizar informações');

@@ -8,6 +8,7 @@ import { NovaMovimentacaoComponent }  from './components/nova-movimentacao/nova-
 
 import { LoginService } from './services/login.service';
 import { NovaContaService } from './services/nova-conta.service';
+import { MovimentacaoService } from './services/movimentacao.service';
 
 import routes from './app.routes';
 
@@ -16,6 +17,7 @@ let angularModules = ['ngRoute'];
 angular.module('financeiro', angularModules)
   .service('loginService', LoginService)
   .service('novaContaService', NovaContaService)
+  .service('movimentacaoService', MovimentacaoService)
   .component('headerComponent', HeaderComponent)
   .component('loginComponent', LoginComponent)
   .component('welcomeComponent', WelcomeComponent)
