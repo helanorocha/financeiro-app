@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "usuario")
 public class Usuario implements Serializable {
 	
 	@Id
@@ -21,7 +23,7 @@ public class Usuario implements Serializable {
 	private String email;
 	private String telefone;
 	private Double receitaMensal;
-	private Integer diaReceita;
+	private String diaReceita;
 
 	public Usuario() {
 		
@@ -91,11 +93,11 @@ public class Usuario implements Serializable {
 		this.receitaMensal = receitaMensal;
 	}
 
-	public Integer getDiaReceita() {
+	public String getDiaReceita() {
 		return diaReceita;
 	}
 
-	public void setDiaReceita(Integer diaReceita) {
+	public void setDiaReceita(String diaReceita) {
 		this.diaReceita = diaReceita;
 	}
 
