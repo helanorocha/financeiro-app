@@ -1,6 +1,6 @@
 class NovaMovimentacaoController {
     constructor($location, movimentacaoService, loginService) {
-        this.entrada = {};
+        this.movimentacao = {};
         this.location = $location;
         this.movimentacaoService = movimentacaoService;
         this.loginService = loginService;

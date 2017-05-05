@@ -45,10 +45,7 @@ public class MovimentacaoController {
 			if(m.getUsuario().getId() == id) {
 				retorno.add(m);
 				String diaMes = m.getData().substring(0, 5);
-				System.out.println(diaMes);
-				System.out.println(dataUsuario);
-				System.out.println(m.getValor().equals(receita));
-				if(diaMes.equals(dataUsuario) && m.getValor().equals(receita)) {
+				if(diaMes.equals(dataUsuario) ) {
 					valorAdicionado = true;
 				}
 			}

@@ -19,6 +19,8 @@ public class Movimentacao {
 	private Double valor;
 	private String data;
 	private String tipo;
+	private String categoria;
+	private String formaMovimentacao;
 	
 	@OneToOne
 	private Usuario usuario;
@@ -58,5 +60,17 @@ public class Movimentacao {
 	}
 	public void setValor(Double valor) {
 		this.valor = valor;
+	}
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+	public String getFormaMovimentacao() {
+		return formaMovimentacao;
+	}
+	public void setFormaMovimentacao(String formaMovimentacao) {
+		this.formaMovimentacao = formaMovimentacao;
 	}
 }

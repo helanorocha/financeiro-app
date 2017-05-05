@@ -9,3 +9,22 @@ export const API_URLS = {
 	NOVA_CONTA: 'http://localhost:8080/novaConta/',
 	MOVIMENTACAO: 'http://localhost:8080/movimentacao/'
 }
+
+export const TIPO_MOVIMENTACAO = {
+	credito: 'Crédito',
+	debito: 'Débito'
+}
+
+export const CATEGORIA_MOVIMENTACAO = {
+	'alimentacao': 'Alimentação',
+	'transporte': 'Transporte',
+	'lazer': 'Lazer',
+	'vestuario': 'Vestuário',
+	'outros': 'Outros'
+}
+
+export const FORMA_MOVIMENTACAO = {
+	'dinheiro': 'Dinheiro',
+	'cartao-credito': 'Cartão de crédito',
+	'debito-conta': 'Débito em conta'
+}

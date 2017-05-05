@@ -10,6 +10,9 @@
                 <a class="nav-link" href="javascript:void(0)" ng-click="$ctrl.welcome()">Início</a>
             </li>
             <li class="nav-item" ng-if="$ctrl.loginService.usuarioLogado">
+                <a class="nav-link" href="javascript:void(0)" ng-click="$ctrl.extrato()">Extrato</a>
+            </li>
+            <li class="nav-item" ng-if="$ctrl.loginService.usuarioLogado">
                 <a class="nav-link" href="javascript:void(0)" ng-click="$ctrl.minhaConta()">Minha Conta</a>
             </li>
             <li class="nav-item" ng-if="$ctrl.loginService.usuarioLogado">

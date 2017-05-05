@@ -1,20 +1,25 @@
 
-<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="$ctrl.adicionarMovimentacao()">Adicionar</button>
-<div style="margin-bottom: 20px;"></div>
-<ul class="list-group">
-  <li class="list-group-item justify-content-between" ng-repeat="movimentacao in $ctrl.listaMovimentacao">
-    <div class="d-flex justify-content-end" style="width: 100%;">
-      <div class="mr-auto p-2">{{ movimentacao.data |  date : 'dd/MM' }} - {{ movimentacao.descricao }}</div>
-      <div class="p-2">
-        <span class="badge badge-default badge-pill" ng-class="{green: movimentacao.tipo == 'credito', red: movimentacao.tipo == 'debito'}">
-          {{ movimentacao.tipo == 'credito'? '+':'-' }} R$ {{ movimentacao.valor }}
-        </span>
-      </div>
-      <div class="p-2">
-        <a href="javascript:void(0)" ng-click="$ctrl.deletar(movimentacao.id)">
-          <span class="glyphicon glyphicon-trash" aria-hidden="true">Deletar</span>
-        </a>
+<div class="row p-3">
+  <div class="center-col">
+    <div class="card green" ng-click="$ctrl.extrato('credito')">
+      <div class="card-block">
+        <h6 class="card-title">Total de receitas</h6>
+        <p class="card-text">
+          R$ {{ $ctrl.totalReceitas }}
+        </p>
       </div>
     </div>
-  </li>
-</ul>
+    <div class="card red" ng-click="$ctrl.extrato('debito')">
+      <div class="card-block">
+        <h6 class="card-title">Total de despesaas</h6>
+        <p class="card-text">
+          R$ {{ $ctrl.totalDespesas }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<h3 class="chart-title">Despesas</h3>
+<div class="row p-3">
+  <div id="pieChart" class="center-col"></div>
+</div>

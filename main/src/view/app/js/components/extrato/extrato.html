@@ -1,0 +1,79 @@
+<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="$ctrl.adicionarMovimentacao()">Adicionar</button>
+<div style="margin-bottom: 20px;"></div>
+<ul class="list-group">
+  <li class="list-group-item justify-content-between" ng-repeat="movimentacao in $ctrl.listaMovimentacao">
+    <div class="d-flex justify-content-end" style="width: 100%;">
+      <div class="mr-auto p-2 cursor-pointer" data-toggle="modal" data-target=".bs-example-modal-lg"
+          ng-click="$ctrl.openModal(movimentacao)">
+        {{ movimentacao.data |  date : 'dd/MM/yyyy' }} - {{ movimentacao.descricao }}
+      </div>
+      <div class="p-2">
+        <span class="badge badge-default badge-pill" ng-class="{green: movimentacao.tipo == 'credito', red: movimentacao.tipo == 'debito'}">
+          {{ movimentacao.tipo == 'credito'? '+':'-' }} R$ {{ movimentacao.valor }}
+        </span>
+      </div>
+      <div class="p-2">
+        <a href="javascript:void(0)" ng-click="$ctrl.deletar(movimentacao.id)">
+          <span class="fa fa-trash-o" aria-hidden="true" style="margin-right: 5px;"></span>Deletar
+        </a>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<div class="list-group-item" style="width: 100%; border-top: 0px;">
+      <div class="mr-auto p-2">{{ $ctrl.labelTotal }}</div>
+      <div class="p-2">
+        <span class="badge badge-default badge-pill" 
+              style="margin-right: 83px;"
+              ng-class="{green: $ctrl.sinalSaldo == 'credito', red: $ctrl.sinalSaldo == 'debito'}">
+          {{ $ctrl.sinalSaldo == 'credito'? '+':($ctrl.sinalSaldo == 'debito'?'-':'') }} R$ {{ $ctrl.total }}
+        </span>
+      </div>
+    </div>
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title" id="gridSystemModalLabel">Detalhes da movimentacao</h4>
+        <a href="javascript:void(0)" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </a>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 ">
+            <label>Descrição: </label>
+            {{ $ctrl.movimentacaoModal.descricao }}
+          </div>
+          <div class="col-md-4">
+            <label>Data: </label>
+            {{ $ctrl.movimentacaoModal.data | date : 'dd/MM/yyyy' }}
+          </div>
+          <div class="col-md-4 ">
+            <label>Valor: </label>
+            R$ {{ $ctrl.movimentacaoModal.valor }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label>Tipo: </label>
+            {{ $ctrl.enumTipo[$ctrl.movimentacaoModal.tipo] }}
+          </div>
+          <div class="col-md-4">
+            <label>Categoria: </label>
+            {{ $ctrl.enumCategoria[$ctrl.movimentacaoModal.categoria] }}
+          </div>
+          <div class="col-md-4">
+            <label>Forma: </label>
+            {{ $ctrl.enumForma[$ctrl.movimentacaoModal.formaMovimentacao] }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

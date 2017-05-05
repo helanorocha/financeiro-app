@@ -15,6 +15,11 @@ class HeaderController {
     $(".navbar-toggler").click();
   }
 
+  extrato() {
+    this.location.url('/extrato');
+    $(".navbar-toggler").click();
+  }
+
   welcome() {
     this.location.url('/welcome');
     $(".navbar-toggler").click();
