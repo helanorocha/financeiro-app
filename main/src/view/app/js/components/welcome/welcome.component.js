@@ -61,6 +61,10 @@ class  WelcomeController {
 	extrato(tipo) {
 		this.location.url('/extrato?tipo='+tipo);
 	}
+
+	adicionarMovimentacao() {
+		this.location.url('/novaMovimentacao');
+	}
 }
 
 WelcomeController.$inject = ['loginService', '$location', 'movimentacaoService'];

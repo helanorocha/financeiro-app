@@ -3,6 +3,7 @@ package financeiro.controllers;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -60,6 +61,7 @@ public class MovimentacaoController {
 				sdf.applyPattern("MM/yyyy");
 				m.setData(usuario.getDiaReceita() + "/" + sdf.format(new Date()));
 				m.setDescricao("Receita mensal");
+				m.setCategoria("receita");
 				m.setTipo("credito");
 				m.setValor(receita);
 				m.setUsuario(usuario);
@@ -71,7 +73,7 @@ public class MovimentacaoController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		Collections.sort(retorno);
 		return retorno;
 	}
 	

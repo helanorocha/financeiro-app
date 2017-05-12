@@ -20,7 +20,8 @@ export const CATEGORIA_MOVIMENTACAO = {
 	'transporte': 'Transporte',
 	'lazer': 'Lazer',
 	'vestuario': 'Vestuário',
-	'outros': 'Outros'
+	'outros': 'Outros',
+	'receita': 'Receita'
 }
 
 export const FORMA_MOVIMENTACAO = {

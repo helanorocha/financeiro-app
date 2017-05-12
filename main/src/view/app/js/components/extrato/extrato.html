@@ -7,6 +7,11 @@
           ng-click="$ctrl.openModal(movimentacao)">
         {{ movimentacao.data |  date : 'dd/MM/yyyy' }} - {{ movimentacao.descricao }}
       </div>
+      <div class="p-2 badge-align">
+        <span class="badge badge-default badge-pill">
+          {{ movimentacao.categoria?$ctrl.enumCategoria[movimentacao.categoria]: 'Receita' }}
+        </span>
+      </div>
       <div class="p-2">
         <span class="badge badge-default badge-pill" ng-class="{green: movimentacao.tipo == 'credito', red: movimentacao.tipo == 'debito'}">
           {{ movimentacao.tipo == 'credito'? '+':'-' }} R$ {{ movimentacao.valor }}
